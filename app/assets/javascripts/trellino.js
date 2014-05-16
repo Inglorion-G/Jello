@@ -6,6 +6,10 @@ window.Trellino = {
   initialize: function () {
   	//initialize global collection here
 		//fetch all boards
+		Trellino.Collections.boards = new Trellino.Collections.Boards();
+		Trellino.Collections.boards.fetch();
+		
+		new Trellino.Routers.AppRouter();
 		Backbone.history.start();
   }
 };

@@ -2,7 +2,7 @@ module Api
   class BoardsController < ApiController
     def index
       @boards = Board.includes(:lists, :cards).all
-      render :index
+      render json: @boards
     end
 
     def show
