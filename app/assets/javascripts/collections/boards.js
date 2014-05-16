@@ -10,7 +10,7 @@ window.Trellino.Collections.Boards = Backbone.Collection.extend({
 			model.fetch();
 			return model;
 		} else {
-			model = new Trellino.Models.board( {id: id} );
+			model = new Trellino.Models.Board( {id: id} );
 			model.fetch({
 				success: function () { boards.add(model) }
 			});
