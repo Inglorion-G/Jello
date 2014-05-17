@@ -13,7 +13,7 @@ class Board < ActiveRecord::Base
 
   has_many :board_assignments, inverse_of: :board
   has_many :cards, through: :lists
-  has_many :lists, dependent: :destroy
+  has_many :lists, dependent: :destroy, inverse_of: :board
   has_many :members,
     through: :board_assignments,
     source: :user,

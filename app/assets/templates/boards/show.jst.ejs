@@ -1,8 +1,9 @@
+<a href="#">Back to All Boards</a>
 <h1><%= board.escape("title") %> Board</h1>
 <% board.lists().each( function(list) { %>
 	<h3><%= list.escape('title') %></h3>
 <% }) %>
+<div class="board-list"></div>
 <div id="new-list-form"></div>
-<button id="destroy">Delete Board</button>
+<button id="inactive-destroy" class="btn btn-warning">Delete Board</button>
 <br>
-<a href="#">Back to All Boards</a>

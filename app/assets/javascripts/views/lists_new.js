@@ -14,10 +14,12 @@ window.Trellino.Views.NewList = Backbone.View.extend({
 		event.preventDefault();
 		var listData = $(event.currentTarget).serializeJSON();
 		var newList = new Trellino.Models.List(listData);
+		var view = this;
+		newList.collection = this.model.lists();
 		
 		newList.save({}, {
 			success: function () {
-				view.model.lists().add(list);
+				view.model.lists().add(newList);
 				view.render()
 			}
 		});
