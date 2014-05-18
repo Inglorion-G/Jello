@@ -1,9 +1,20 @@
-<h1>Boards!</h1>
-<ul>
-	<% boards.each(function(board){ %>
-	  <li>
-			<a class="board-link" href="#/boards/<%= board.escape('id') %>"><%= board.escape('title') %></a>
-		</li>
-	<% }) %>
-</ul>
-<a href="#/boards/new">Add a Board!</a>
+<h1>Boards</h1>
+<div class="row">
+	<% boards.each(function(board) { %>
+		<div id="board-label" class="col-xs-3">
+			<h2>
+				<a class="board-link" href="#/boards/<%= board.escape('id') %>">
+					<span class="label label-info">
+					  <%= board.escape('title') %>
+					</span>
+				</a>
+			</h2>
+		</div>
+	<% }); %>
+</div>
+<br>
+<a href="#/boards/new">
+	<button type="button" class="btn btn-primary btn-md">
+	  <span class="glyphicon glyphicon-plus"></span> Add Board
+	</button>
+</a>
