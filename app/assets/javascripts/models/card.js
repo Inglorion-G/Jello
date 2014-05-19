@@ -11,11 +11,4 @@ window.Trellino.Models.Card = Backbone.Model.extend({
 		this.list = options.list;
 	},
 	
-	// url: function () {
-// 		if (this.id) {
-// 			return "/api/lists/" + this.id + "/cards"
-// 		} else {
-// 			return "/api/lists" + this.list.id + "/cards"
-// 		}
-// 	}
 });

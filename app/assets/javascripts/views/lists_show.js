@@ -4,6 +4,8 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 	events: {
 		"click #destroy-list": "destroy",
 		"click #show-new-card-form": "showNewCardForm",
+		"mouseover": "showDeleteButton",
+		"mouseleave": "hideDeleteButton"
 	},
 	
 	initialize: function(options) {
@@ -48,6 +50,14 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		});
 		
 		this.removeSubview("#cards", cardShowView);
+	},
+	
+	showDeleteButton: function (event) {
+		$(event.target).parent().find("#destroy-list").show();
+	},
+	
+	hideDeleteButton: function (event) {
+		$(event.target).parent().find("#destroy-list").hide();
 	},
 	
 	destroy: function (event) {

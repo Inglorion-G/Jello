@@ -5,9 +5,9 @@ window.Trellino.Collections.BoardLists = Backbone.Collection.extend({
 		return this.board.url() + "/lists";
 	},
 	
-	// comparator: function(board) {
-// 		return( list.get('rank') );
-// 	},
+	comparator: function() {
+		return( this.get('rank') );
+	},
 	
 	initialize: function (models, options) {
 		this.board = options.board;

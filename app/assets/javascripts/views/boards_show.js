@@ -6,7 +6,7 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.lists(), "add", this.addList);
 		this.listenTo(this.model.lists(), "remove", this.removeList);		
 		
-		this.model.lists().each(this.addList.bind(this));
+		this.model.lists().sort().each(this.addList.bind(this));
 
 		var listForm = new Trellino.Views.NewList({
 			board: this.model
@@ -26,18 +26,18 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
 	
 	removeList: function (list) {
 		var listShowView = 
-		_(this.subviews()["#list-item"]).find(function (subview) {
+		_(this.subviews()["#board-list"]).find(function (subview) {
 			return subview.model === list;
 		});
 		
-		this.removeSubview("#list-item", listShowView);
+		this.removeSubview("#board-list", listShowView);
 	},
 	
 	events: {
 		"click #inactive-destroy":"activateDelete",
 		"click #active-destroy":"removeBoard",
-		"click #new-card-form":"renderNewCard",
-		"click #cancel-card":"hideNewCard"
+		//start
+		//stop
 	},
 	
 	render: function () {
