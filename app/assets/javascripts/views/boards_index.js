@@ -1,4 +1,4 @@
-window.Trellino.Views.BoardsIndex = Backbone.View.extend({
+Trellino.Views.BoardsIndex = Backbone.View.extend({
 	
 	template: JST['boards/index'],
 	

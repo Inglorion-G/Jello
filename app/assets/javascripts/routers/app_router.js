@@ -1,4 +1,4 @@
-window.Trellino.Routers.AppRouter = Backbone.Router.extend({
+Trellino.Routers.AppRouter = Backbone.Router.extend({
 	
 	routes: {
 		"":"boardsIndex",

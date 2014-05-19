@@ -11,8 +11,7 @@ module Api
     end
 
     def create
-      @list = List.find(params[:list_id])
-      @card = @list.cards.new(card_params)
+      @card = Cards.new(card_params)
       if @card.save
         render partial: "api/cards/card", locals: { card: @card }
       else

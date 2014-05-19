@@ -1,4 +1,4 @@
-window.Trellino.Collections.ListCards = Backbone.Collection.extend({
+Trellino.Collections.ListCards = Backbone.Collection.extend({
 	
 	model: Trellino.Models.Card,
 	

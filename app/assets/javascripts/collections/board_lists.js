@@ -1,4 +1,4 @@
-window.Trellino.Collections.BoardLists = Backbone.Collection.extend({
+Trellino.Collections.BoardLists = Backbone.Collection.extend({
 	model: Trellino.Models.List,
 	
 	url: function () {

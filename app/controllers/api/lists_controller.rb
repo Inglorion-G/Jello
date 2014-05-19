@@ -11,8 +11,7 @@ module Api
     end
 
     def create
-      @board = Board.find(params[:board_id])
-      @list = @board.lists.new(list_params)
+      @list = List.new(list_params)
       if @list.save
         render partial: "api/lists/list", locals: { list: @list }
       else

@@ -1,4 +1,4 @@
-window.Trellino.Views.BoardShow = Backbone.View.extend({
+Trellino.Views.BoardShow = Backbone.View.extend({
 	template: JST['boards/show'],
 	
 	initialize: function () {
@@ -21,10 +21,17 @@ window.Trellino.Views.BoardShow = Backbone.View.extend({
 		
 		this.$el.html(content);
 		
-		var formView = new Trellino.Views.NewList({
-			model: this.model
+		this.model.lists().each(function (list) {
+			var listShowView = new Trellino.Views.ListsShow({
+				model: list
+			});
+			this.$("#list-item").append(listShowView.render().$el); 
 		});
-		this.$("#new-list-form").html(formView.render().$el);
+
+		var listForm = new Trellino.Views.NewList({
+			board: this.model
+		});
+		this.$("#new-list-form").html(listForm.render().$el);
 		
 		return this;
 	},

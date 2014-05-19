@@ -1,4 +1,4 @@
-window.Trellino.Views.NewCard = Backbone.View.extend({
+Trellino.Views.NewCard = Backbone.View.extend({
 	template: JST['cards/new'],
 	events: {
 		"click #submit-form":"submit",
