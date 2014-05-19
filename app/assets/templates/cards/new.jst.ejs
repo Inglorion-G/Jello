@@ -1,14 +1,19 @@
-<form>
-	<label>
-		Card Title
-		<input type="text" name="card[title]">
-	</label>
+<form class="new-card">
+	<input type="hidden" name="card[list_id]" value="<%= list.escape('id') %>">
+	<div class="input-group">
+		<label>
+			Card Title
+			<input type="text" class="form-control" name="card[title]">
+		</label>
+  </div>
 	<br>
-	<label>
-		Rank
-		<input type="text" name="card[rank]">
-	</label>
+	<div class="input-group">
+		<label>
+			Rank
+			<input type="text" class="form-control" name="card[rank]">
+		</label>
+	</div>
 	
-	<input id="submit-form" class="btn btn-success" type="submit" value="Add">	
+	<input id="submit-form" class="btn btn-success" type="submit" value="Add Card">	
 	<button id="cancel-card" class="btn btn-danger glyphicon glyphicon-remove pull-right"></button>
 </form>

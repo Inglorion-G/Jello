@@ -1,12 +1,16 @@
 window.Trellino.Views.NewCard = Backbone.View.extend({
 	template: JST['cards/new'],
+	
+	initialize: function(options) {
+		this.list = options.list;
+	},
+	
 	events: {
 		"click #submit-form":"submit",
 	},
 	
 	render: function() {
-		alert(this.card)
-		var content = this.template({ card: this.card })
+		var content = this.template({ list: this.list });
 		this.$el.html(content);
 		return this;
 	},
