@@ -13,6 +13,25 @@ window.Trellino = {
   }
 };
 
+Backbone.CompositeView = Backbone.View.extend({
+	addSubview: function (selector, view) {
+		var selectorSubviews = 
+		  subviews[selector] || (subviews[selector] = []);
+			
+		selectorSubviews.push(view);
+	},
+	
+	renderSubviews: function () {
+		_(this.subviews).each(function (selectorSubviews, selector) {
+			_(selectorSubviews.each(function (subview) {
+				subview.render();
+			});
+		});
+	},
+	
+	subviews: {}
+});
+
 $(document).ready(function() {
 	Trellino.initialize();
 })

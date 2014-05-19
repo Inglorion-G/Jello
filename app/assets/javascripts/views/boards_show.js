@@ -25,13 +25,16 @@ Trellino.Views.BoardShow = Backbone.View.extend({
 			var listShowView = new Trellino.Views.ListsShow({
 				model: list
 			});
-			this.$("#list-item").append(listShowView.render().$el); 
+			
+			this.addSubview("#list-item", listShowView)
+			//this.$("#list-item").append(listShowView.render().$el); 
 		});
 
 		var listForm = new Trellino.Views.NewList({
 			board: this.model
 		});
-		this.$("#new-list-form").html(listForm.render().$el);
+		this.addSubview("#new-list-form", listForm)
+		// this.$("#new-list-form").html(listForm.render().$el);
 		
 		return this;
 	},
