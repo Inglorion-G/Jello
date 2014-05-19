@@ -1,9 +1,24 @@
-Trellino.Views.BoardShow = Backbone.View.extend({
+window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
 	template: JST['boards/show'],
 	
 	initialize: function () {
 		this.listenTo(this.model, "sync", this.render);
 		this.listenTo(this.model.lists(), "add sync", this.render);
+		
+		// this.model.lists().each(function (list) {
+// 			var listShowView = new Trellino.Views.ListsShow({
+// 				model: list
+// 			});
+// 			
+// 			this.addSubview("#list-item", listShowView)
+// 			//this.$("#list-item").append(listShowView.render().$el); 
+// 		});
+
+		var listForm = new Trellino.Views.NewList({
+			board: this.model
+		});
+		this.addSubview("#new-list-form", listForm)
+		// this.$("#new-list-form").html(listForm.render().$el);
 	},
 	
 	events: {
@@ -20,21 +35,7 @@ Trellino.Views.BoardShow = Backbone.View.extend({
 		});
 		
 		this.$el.html(content);
-		
-		this.model.lists().each(function (list) {
-			var listShowView = new Trellino.Views.ListsShow({
-				model: list
-			});
-			
-			this.addSubview("#list-item", listShowView)
-			//this.$("#list-item").append(listShowView.render().$el); 
-		});
-
-		var listForm = new Trellino.Views.NewList({
-			board: this.model
-		});
-		this.addSubview("#new-list-form", listForm)
-		// this.$("#new-list-form").html(listForm.render().$el);
+		this.renderSubviews();
 		
 		return this;
 	},

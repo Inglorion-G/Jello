@@ -1,4 +1,4 @@
-Trellino.Views.ListsShow = Backbone.View.extend({
+window.Trellino.Views.ListsShow = Backbone.View.extend({
 	template: JST["lists/show"],
 	
 	events: {

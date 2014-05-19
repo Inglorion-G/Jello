@@ -1,4 +1,4 @@
-Trellino.Views.NewBoard = Backbone.View.extend({
+window.Trellino.Views.NewBoard = Backbone.View.extend({
 	template: JST['boards/new'],
 	
 	events: { "submit form":"submit" },

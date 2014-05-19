@@ -1,4 +1,4 @@
-Trellino.Models.Board = Backbone.Model.extend({
+window.Trellino.Models.Board = Backbone.Model.extend({
 	urlRoot: 'api/boards',
 	
 	lists: function () {

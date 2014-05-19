@@ -1,4 +1,4 @@
-Trellino.Views.NewList = Backbone.View.extend({
+window.Trellino.Views.NewList = Backbone.View.extend({
 	template: JST['lists/new'],
 	
 	initialize: function(options) {
