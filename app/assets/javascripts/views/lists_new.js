@@ -28,7 +28,7 @@ window.Trellino.Views.NewList = Backbone.View.extend({
 	  list.save({}, {
 			success: function () {
 				view.board.lists().add(list);
-				//view.board.render()
+				view.$('text[name=list\\[title\\]]').val("");
 			}
 		});
 	},

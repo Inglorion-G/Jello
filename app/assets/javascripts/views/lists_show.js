@@ -5,6 +5,10 @@ window.Trellino.Views.ListsShow = Backbone.View.extend({
 		"click #destroy-list": "destroy"
 	},
 	
+	initialize: function(options) {
+		this.listenTo(this.model, "change", this.render);
+	},
+	
 	render: function () {
 		var renderedContent = this.template({
 			list: this.model
