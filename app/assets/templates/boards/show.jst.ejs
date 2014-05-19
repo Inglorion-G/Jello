@@ -1,11 +1,41 @@
-<a href="#">Back to All Boards</a>
-
 <h1><%= board.escape("title") %> Board</h1>
-<% board.lists().each( function(list) { %>
-	<h3><%= list.escape('title') %></h3>
-<% }) %>
+
+<div class="row">
+	<% board.lists().each(function(list) { %>
+		<div id="list-panel" class="col-xs-3">
+			<h4>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				    <%= list.escape('title') %>
+					</div>
+					<div class="panel-content">
+						<% list.cards().each(function (card) { %>
+							<div class="well well-sm">
+								  <%= card.escape('title') %>
+							</div>
+						<% }) %>
+						<a href="#">
+							<div data-id="<%= list.attributes['id'] %>" id="new-card-form" class="well well-sm">
+								Add a new card!
+							</div>
+					  </a>
+					</div>
+				</div>
+			</h4>
+		</div>
+	<% }); %>
+</div>
+
+<!-- <div class="col-xs-3">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			Create a new list!
+		</div>
+	</div>
+</div> -->
 
 <div class="board-list"></div>
 <div id="new-list-form"></div>
 <button id="inactive-destroy" class="btn btn-warning">Delete Board</button>
 <br>
+

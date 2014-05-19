@@ -4,9 +4,11 @@
 		<div id="board-label" class="col-xs-3">
 			<h2>
 				<a class="board-link" href="#/boards/<%= board.escape('id') %>">
-					<span class="label label-info">
-					  <%= board.escape('title') %>
-					</span>
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+					    <%= board.escape('title') %>
+						</div>
+					</div>
 				</a>
 			</h2>
 		</div>

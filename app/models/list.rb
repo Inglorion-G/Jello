@@ -14,5 +14,5 @@ class List < ActiveRecord::Base
   validates :title, :rank, :board_id, presence: true
 
   belongs_to :board
-  has_many :cards, dependent: :destroy
+  has_many :cards, dependent: :destroy, inverse_of: :list
 end
