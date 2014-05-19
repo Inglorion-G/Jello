@@ -11,7 +11,7 @@ module Api
     end
 
     def create
-      @card = Cards.new(card_params)
+      @card = Card.new(card_params)
       if @card.save
         render partial: "api/cards/card", locals: { card: @card }
       else

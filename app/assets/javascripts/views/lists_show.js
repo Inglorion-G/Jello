@@ -37,17 +37,17 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		  model: card
 		});
 		
-		this.addSubview(".panel-content", cardShowView);
+		this.addSubview("#cards", cardShowView);
 		cardShowView.render()
 	},
 	
-	removeCard: function (list) {
+	removeCard: function (card) {
 		var cardShowView = 
-		_(this.subviews()[".panel-content"]).find(function (subview) {
+		_(this.subviews()["#cards"]).find(function (subview) {
 			return subview.model === card;
 		});
 		
-		this.removeSubview(".panel-content", cardShowView);
+		this.removeSubview("#cards", cardShowView);
 	},
 	
 	destroy: function (event) {
@@ -57,19 +57,19 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 	showNewCardForm: function (event) {
 		event.preventDefault();
 		$target = $(event.target);
-		console.log($target)
+		$
 		$target.show();
 	}
 	
 	// renderNewCard: function (event) {
-// 		event.preventDefault();
-// 		$target = $(event.target);
-// 		var cardFormView = new Trellino.Views.NewCard({
-// 			list: this.model.lists().get(listId)
-// 		});
-// 		
-// 		$target.html(cardFormView.render().$el);
-// 	},
+	// 	event.preventDefault();
+	// 	$target = $(event.target);
+	// 	var cardFormView = new Trellino.Views.NewCard({
+	// 		list: this.model.lists().get(listId)
+	// 	});
+	// 	
+	// 	$target.html(cardFormView.render().$el);
+	// },
 // 	
 // 	hideNewCard: function (event) {
 // 		event.preventDefault();

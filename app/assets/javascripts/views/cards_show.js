@@ -3,7 +3,9 @@ window.Trellino.Views.CardsShow = Backbone.View.extend({
 	
 	events: {
 		"click #destroy-card": "destroyCard",
-		"submit form": "createCard"
+		"submit form": "createCard",
+		"mouseover": "showDeleteButton",
+		"mouseleave": "hideDeleteButton"
 	},
 	
 	initialize: function(options) {
@@ -24,6 +26,14 @@ window.Trellino.Views.CardsShow = Backbone.View.extend({
 		this.model.save();
 		
 		this.render();
+	},
+	
+	showDeleteButton: function (event) {
+		$(event.target).parent().find("#destroy-card").show();
+	},
+	
+	hideDeleteButton: function (event) {
+		$(event.target).parent().find("#destroy-card").hide();
 	},
 	
 	destroyCard: function (event) {

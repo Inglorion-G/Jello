@@ -65,26 +65,4 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
 		Backbone.history.navigate("#", {trigger: true});
 	},
 	
-	// renderNewCard: function (event) {
-// 		event.preventDefault();
-// 		$target = $(event.target);
-// 		var listId = $target.data('id');
-// 		console.log(this.model.lists().get(listId))
-// 		var cardFormView = new Trellino.Views.NewCard({
-// 			list: this.model.lists().get(listId)
-// 		});
-// 		
-// 		$target.html(cardFormView.render().$el);
-// 	},
-// 	
-// 	hideNewCard: function (event) {
-// 		event.preventDefault();
-// 		$target = $(event.target)
-// 		$form = $target.parent()
-// 		$form.remove()
-// 		$("#new-card-form").html("Add a new card!")
-// 	}
-	
-	//render new list
-	
 })

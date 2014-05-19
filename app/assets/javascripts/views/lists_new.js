@@ -23,7 +23,6 @@ window.Trellino.Views.NewList = Backbone.View.extend({
 		
 		var listParams = $(event.currentTarget).serializeJSON();
 		var list = new Trellino.Models.List(listParams["list"]);
-		debugger
 		//newList.collection = this.model.lists();
 	  list.save({}, {
 			success: function () {
