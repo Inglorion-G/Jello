@@ -28,8 +28,12 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 			list: this.model
 		});
 		
+		$('#list-panel').sortable({
+			
+		});
+		
 		this.$el.html(content);
-		this.renderSubviews();
+		this.attachSubviews();
 		
 		return this;
 	},
@@ -41,6 +45,7 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		
 		this.addSubview("#cards", cardShowView);
 		cardShowView.render()
+		this.render()
 	},
 	
 	removeCard: function (card) {
@@ -70,23 +75,5 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		$
 		$target.show();
 	}
-	
-	// renderNewCard: function (event) {
-	// 	event.preventDefault();
-	// 	$target = $(event.target);
-	// 	var cardFormView = new Trellino.Views.NewCard({
-	// 		list: this.model.lists().get(listId)
-	// 	});
-	// 	
-	// 	$target.html(cardFormView.render().$el);
-	// },
-// 	
-// 	hideNewCard: function (event) {
-// 		event.preventDefault();
-// 		$target = $(event.target)
-// 		$form = $target.parent()
-// 		$form.remove()
-// 		$("#new-card-form").html("Add a new card!")
-// 	}
 	
 });

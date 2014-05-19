@@ -1,15 +1,51 @@
-<h3>Make a New List</h3>
+<div id="new-list-panel" class="col-xs-3">
+	<h4>
+		<div id="new-list" class="panel panel-default">
+			<div class="panel-heading">
+  		  Add New List
+			</div>
+			<div class="panel-content">
+			  <div id="new-list-form" class="well well-sm">
+					<form>
+						<input type="hidden" name="list[board_id]" value="<%= board.escape('id') %>">
+						<div class="input-group">
+							<label>
+								List Title
+								<input type="text" name="list[title]" class="form-control">
+							</label>
+					  </div>
+						<br>
+						<div class="input-group">
+							<label>
+								List Rank
+								<input type="text" name="list[rank]" class="form-control">
+							</label>
+					  </div>
+						<br>
+						<input class="btn btn-primary" type="submit" value="Create List">	
+					</form>
+			  </div>
+		  </div>
+	  </div>
+  </h4>
+</div>
+
+<!-- <h3>Make a New List</h3>
 <form>
 	<input type="hidden" name="list[board_id]" value="<%= board.escape('id') %>">
-	<label>
-		List Title
-		<input type="text" name="list[title]">
-	</label>
+	<div class="input-group">
+		<label>
+			List Title
+			<input type="text" name="list[title]" class="form-control">
+		</label>
+  </div>
 	<br>
-	<label>
-		List Rank
-		<input type="text" name="list[rank]">
-	</label>
+	<div class="input-group">
+		<label>
+			List Rank
+			<input type="text" name="list[rank]" class="form-control">
+		</label>
+  </div>
 	<br>
 	<input class="btn btn-primary" type="submit" value="Create List">	
-</form>
+</form> -->
