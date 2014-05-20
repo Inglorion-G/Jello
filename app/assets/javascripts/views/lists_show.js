@@ -11,7 +11,7 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		"click #show-new-card-form": "showNewCardForm",
 		"mouseover": "showDeleteButton",
 		"mouseleave": "hideDeleteButton",
-		"sortstop .cards": "saveCards"
+		"sortstop .cards": "saveCards",
 	},
 	
 	initialize: function(options) {
@@ -37,18 +37,20 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		this.$el.html(content);
 		this.attachSubviews();
 		
-		$('.cards').sortable();
+		$('.cards').sortable({
+			connectWith: '.cards'
+		});
+		
 		
 		return this;
 	},
 	
 	saveCards: function () {
 		var that = this;
-		$('.cards').each(function(index, el) {
+		this.$('.cards > div').each(function(index, el) {
 			var id = parseInt($(el).data('card-id'));
-			console.log(id)
 			var card = that.model.cards().get(id);
-			card.save({rank: index});
+			card.save( { rank: index } );
 		});
 		// iterate through list panels with jquery
 		// get the list model that matches id of panel

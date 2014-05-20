@@ -4,7 +4,6 @@ window.Trellino.Views.CardsShow = Backbone.View.extend({
 	attributes: function(){
 		return {
 			"data-card-id": this.model.id,
-			"class": "card-element",
 		};
 	},
 	
