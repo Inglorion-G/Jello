@@ -1,11 +1,17 @@
 window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 	template: JST["lists/show"],
+	attributes: function(){
+		return {"data-list-id": this.model.id};
+	},
+	
+	className: "col-xs-3 list-panel board-list",
 	
 	events: {
 		"click #destroy-list": "destroy",
 		"click #show-new-card-form": "showNewCardForm",
 		"mouseover": "showDeleteButton",
-		"mouseleave": "hideDeleteButton"
+		"mouseleave": "hideDeleteButton",
+		"sortstop .cards": "saveCards"
 	},
 	
 	initialize: function(options) {
@@ -28,14 +34,26 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 			list: this.model
 		});
 		
-		$('#list-panel').sortable({
-			
-		});
-		
 		this.$el.html(content);
 		this.attachSubviews();
 		
+		$('.cards').sortable();
+		
 		return this;
+	},
+	
+	saveCards: function () {
+		var that = this;
+		$('.cards').each(function(index, el) {
+			var id = parseInt($(el).data('card-id'));
+			console.log(id)
+			var card = that.model.cards().get(id);
+			card.save({rank: index});
+		});
+		// iterate through list panels with jquery
+		// get the list model that matches id of panel
+		// have a counter to set the rank
+		// save request
 	},
 	
 	addCard: function (card) { 
@@ -43,14 +61,14 @@ window.Trellino.Views.ListsShow = Backbone.CompositeView.extend({
 		  model: card
 		});
 		
-		this.addSubview("#cards", cardShowView);
+		this.addSubview(".cards", cardShowView);
 		cardShowView.render()
 		this.render()
 	},
 	
 	removeCard: function (card) {
 		var cardShowView = 
-		_(this.subviews()["#cards"]).find(function (subview) {
+		_(this.subviews()[".cards"]).find(function (subview) {
 			return subview.model === card;
 		});
 		

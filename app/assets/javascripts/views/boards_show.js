@@ -36,22 +36,33 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
 	events: {
 		"click #inactive-destroy":"activateDelete",
 		"click #active-destroy":"removeBoard",
-		//start
-		//stop
+		"sortstop #board-list": "saveLists"
 	},
 	
 	render: function () {
 		var view = this;
 		var content = this.template({
 			board: this.model
-		});
-		
-		//this.removeAllSubviews("#board-list")	
+		});	
 		
 		this.$el.html(content);
 		this.attachSubviews();
 		
+		$('#board-list').sortable();
 		return this;
+	},
+	
+	saveLists: function () {
+		var that = this;
+		$('.board-list').each(function(index, el) {
+			var id = parseInt($(el).data('list-id'));
+			var list = that.model.lists().get(id);
+			list.save({rank: index});
+		});
+		// iterate through list panels with jquery
+		// get the list model that matches id of panel
+		// have a counter to set the rank
+		// save request
 	},
 	
 	activateDelete: function (event) {

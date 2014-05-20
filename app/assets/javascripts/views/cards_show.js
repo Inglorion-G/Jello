@@ -1,6 +1,13 @@
 window.Trellino.Views.CardsShow = Backbone.View.extend({
 	template: JST["cards/show"],
 	
+	attributes: function(){
+		return {
+			"data-card-id": this.model.id,
+			"class": "card-element",
+		};
+	},
+	
 	events: {
 		"click #destroy-card": "destroyCard",
 		"submit form": "createCard",

@@ -29,9 +29,10 @@ window.Trellino.Views.NewCard = Backbone.View.extend({
 	
 	submit: function(event) {
 		event.preventDefault();
+		var view = this;
 		var cardData = $(event.currentTarget).serializeJSON().card;
 		var newCard = new Trellino.Models.Card(cardData);
-		var view = this;
+		newCard.set('rank', view.list.cards().length + 1)
 		
 		newCard.save({}, {
 			success: function () {

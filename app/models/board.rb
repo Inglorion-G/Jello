@@ -22,4 +22,12 @@ class Board < ActiveRecord::Base
   def self.for_member(user)
     joins(:board_assignments).where("board_assignments.user_id = ?", user.id)
   end
+  
+  # def list_ranks=(board_lists)
+    # board_lists.each do |list|
+    # l = lists.find(list.id)
+    # l.rank = list.rank
+    
+    # call save
+  # end
 end

@@ -43,6 +43,7 @@ module Api
     private
     def board_params
       params.require(:board).permit(:title)
+      # add a param called list_ranks => []
     end
   end
 end

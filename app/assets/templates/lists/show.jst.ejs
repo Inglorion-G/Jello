@@ -1,16 +1,14 @@
-<div id="list-panel" class="col-xs-3">
-	<h4>
-		<div id="board-list-item" class="panel panel-primary">
-			<div class="panel-heading">
-  		  <%= list.escape('title') %>
-				<span><button id="destroy-list" class="btn btn-default glyphicon glyphicon-remove pull-right"></button></span>
+<h4>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+		  <%= list.escape('title') %>
+			<span><button id="destroy-list" class="btn btn-default glyphicon glyphicon-remove pull-right"></button></span>
+		</div>
+		<div class="panel-content">
+			<div class="cards">
 			</div>
-			<div class="panel-content">
-				<div id="cards">
-				</div>
-			  <div id="new-card-form" class="well well-sm">
-			  </div>
+		  <div id="new-card-form" class="well well-sm">
 		  </div>
 	  </div>
-  </h4>
-</div>
+  </div>
+</h4>
